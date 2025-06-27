@@ -75,7 +75,7 @@ const todos = ref([])
 const newTodo = ref('')
 const activeFilter = ref('all')
 
-// Fetch todos
+
 onMounted(async () => {
   try {
     const response = await axios.get(API_URL)
@@ -85,7 +85,7 @@ onMounted(async () => {
   }
 })
 
-// Computed properties
+
 const filteredTodos = computed(() => {
   switch (activeFilter.value) {
     case 'active': return todos.value.filter(todo => !todo.completed)
@@ -97,7 +97,7 @@ const filteredTodos = computed(() => {
 const activeTodoCount = computed(() => todos.value.filter(todo => !todo.completed).length)
 const completedTodoCount = computed(() => todos.value.filter(todo => todo.completed).length)
 
-// Methods
+
 const addTodo = async () => {
   if (!newTodo.value.trim()) return
   
